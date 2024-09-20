@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://x04a0br6iw2y"
+path="res://.godot/imported/todo el mapa.obj-ab6fcdcdf5c92654d9bed283419228bf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/todo el mapa.obj-ab6fcdcdf5c92654d9bed283419228bf.mesh"]
+
+source_file="res://Models/level_1/todo el mapa.obj"
+dest_files=["res://.godot/imported/todo el mapa.obj-ab6fcdcdf5c92654d9bed283419228bf.mesh", "res://.godot/imported/todo el mapa.obj-ab6fcdcdf5c92654d9bed283419228bf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
