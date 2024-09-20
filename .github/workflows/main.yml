@@ -34,6 +34,12 @@ jobs:
         relative_project_path: ./
         archive_output: true
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-export
+        path: ${{ steps.export.outputs.archive_directory }}  # Ruta del build exportado para Windows
+
       # This release action has worked well for me. However, you can most likely use any release action of your choosing.
       # https://github.com/ncipollo/release-action
     - name: create release
