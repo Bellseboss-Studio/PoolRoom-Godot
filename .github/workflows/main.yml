@@ -22,7 +22,7 @@ jobs:
         export-preset: 'Windows Desktop'  # Nombre del preset de exportación en Godot
 
     - name: Build project
-      run: godot --export "Windows Desktop" ./path-to-your-project/project.godot
+      run: godot --export "Windows Desktop" ./project.godot
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
