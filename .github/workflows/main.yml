@@ -1,0 +1,31 @@
+name: Build Godot Game for Windows
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Godot
+      uses: firebelley/godot-export@v1.2.2
+      with:
+        godot-version: '3.5'  # O la versión de Godot que estés utilizando
+        export-preset: 'Windows Desktop'  # Nombre del preset de exportación en Godot
+
+    - name: Build project
+      run: godot --export "Windows Desktop" ./path-to-your-project/project.godot
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-export
+        path: ./export/windows/  # Ruta del build exportado para Windows
