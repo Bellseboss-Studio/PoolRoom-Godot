@@ -11,11 +11,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - uses: firebelley/godot-export@v5.2.0
+    - name: build godot
+      id: export
+      uses: firebelley/godot-export@v5.2.0
       with:
         # Defining all the required inputs
         godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
@@ -31,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: windows-export
-        path: ./export/windows/  # Ruta del build exportado para Windows
+        path: ${{ steps.export.outputs.archive_directory }}  # Ruta del build exportado para Windows
