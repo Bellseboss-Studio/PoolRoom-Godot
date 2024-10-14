@@ -60,7 +60,7 @@ surface_material_override/1 = ExtResource("4_k4taa")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Camera/Lantern"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.218602, 0, -0.192566)
-light_color = Color(0.971895, 0.820707, 0.686702, 1)
+light_color = Color(0.815686, 0.854902, 0.913725, 1)
 light_energy = 0.5
 shadow_enabled = true
 omni_range = 20.0

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgqtcbvl0xkq2"]
+
+[ext_resource type="Script" path="res://Items/WorldItem.gd" id="1_4hppj"]
+[ext_resource type="Material" uid="uid://mj84qqr0mc2g" path="res://Models/Chalice/Chalice.tres" id="2_xh00d"]
+[ext_resource type="ArrayMesh" uid="uid://bpocy4vwis0ms" path="res://Models/Chalice/Chalice.obj" id="3_0gck0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wjxfa"]
+height = 0.329973
+radius = 0.0966179
+
+[node name="WorldItem_Chalice" type="StaticBody3D"]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 0, 0, 0)
+script = ExtResource("1_4hppj")
+item_name = "Chalice"
+interact_prompt = "Pickup Memory"
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = ExtResource("2_xh00d")
+mesh = ExtResource("3_0gck0")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0296008, 0)
+shape = SubResource("CylinderShape3D_wjxfa")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0348892, 0.11658, 0.146248)
+light_color = Color(0.897563, 0.804396, 0.656536, 1)
+light_energy = 0.339
+omni_range = 0.3
