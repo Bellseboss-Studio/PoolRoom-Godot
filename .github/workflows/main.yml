@@ -9,30 +9,31 @@ on:
       - main
 
 jobs:
-  # job id, can be anything
-  export_game:
-    # Always use ubuntu-latest for this action
+  build:
     runs-on: ubuntu-latest
-    # Add permission for release creation. Can be made narrower according to your needs
-    permissions: write-all
-    # Job name, can be anything
-    name: Export Game
+
     steps:
-      # Always include the checkout step so that 
-      # your project is available for Godot to export
-    - name: checkout
-      uses: actions/checkout@v3.3.0
-  
-    - name: export game
-      id: export
-      # Use latest version (see releases for all versions)
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Godot
       uses: firebelley/godot-export@v5.2.0
       with:
-        # Defining all the required inputs
         godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_linux.x86_32.zip
         godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
         relative_project_path: ./
         archive_output: true
+        archive_root_folder: false
+        cache: false
+        use_preset_export_path: false
+        export_debug: false
+        verbose: false
+        use_godot_3: false
+        export_as_pack: false
+
+    - name: Build
+      run: |
+        ./home/runner/.local/share/godot/godot_executable/Godot_v4.3-stable_linux.x86_32 --export "YourExportPreset" "YourOutputFile.exe"
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
